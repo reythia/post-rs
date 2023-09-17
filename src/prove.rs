@@ -304,7 +304,7 @@ pub fn generate_proof(
         log::info!("Finished k2pow in {} minutes", pow_mins);
 
         let read_time = Instant::now();
-        let data_reader = read_data(datadir, 1024 * 1024, metadata.max_file_size)?;
+        let data_reader = read_data(datadir, 1024 * 1024 * 8, metadata.max_file_size)?;
         log::info!("Started reading POST data");
         let result = pool.install(|| {
             data_reader.par_bridge().find_map_any(|batch| {

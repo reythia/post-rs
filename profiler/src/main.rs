@@ -202,7 +202,7 @@ fn main() -> eyre::Result<()> {
 /// Bench proving speed (going over POS data).
 fn proving(args: ProvingArgs) -> eyre::Result<()> {
     let challenge = b"hello world, challenge me!!!!!!!";
-    let batch_size = 1024 * 1024;
+    let batch_size = 1024 * 1024 * 8;
     let total_size = args.data_size * 1024 * 1024 * 1024;
     let params = ProvingParams {
         difficulty: 0, // impossible to find a proof
